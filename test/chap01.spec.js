@@ -72,3 +72,39 @@ describe('命令型モデル', () => {
     });
   });
 });
+describe('functional model', () => {
+  describe('substitution rule', () => {
+    it('reduction of simple lambda expression', (next) => {
+      const succ = (n) => {
+        return n + 1;
+      };
+      expect(
+        succ(1)
+      ).to.eql(
+        2
+      );
+      next();
+    });
+    it('add function', () => {
+      const succ = (n) => {
+        return n + 1;
+      };
+      const prev = (n) => {
+        return n - 1;
+      };
+      const add = (x, y) => {
+        if ( y < 1) {
+          return x;
+        } else {
+          return add(succ(x), prev(y));
+        }
+      };
+      expect(
+        add(3,2)
+      ).to.eql(
+        5
+      );
+      next();
+    });
+  });
+});
