@@ -1,0 +1,26 @@
+{
+  "name": "functionaljs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --harmony -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/potix2/functionaljs.git"
+  },
+  "author": "Katsunori Kanda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/potix2/functionaljs/issues"
+  },
+  "homepage": "https://github.com/potix2/functionaljs#readme",
+  "dependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^6.1.4"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.1"
+  }
+}
