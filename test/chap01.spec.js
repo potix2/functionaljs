@@ -85,7 +85,7 @@ describe('functional model', () => {
       );
       next();
     });
-    it('add function', () => {
+    it('add function', (next) => {
       const succ = (n) => {
         return n + 1;
       };
