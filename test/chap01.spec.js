@@ -106,5 +106,85 @@ describe('functional model', () => {
       );
       next();
     });
+    it('recursion and recurrence relation', (next) => {
+      const a = (n) => {
+        if (n === 1) {
+          return 1;
+        } else {
+          return a(n - 1) + 3;
+        }
+      };
+      expect(
+        a(3)
+      ).to.eql(
+        7
+      );
+      expect(
+        a(4)
+      ).to.eql(
+        10
+      );
+      next();
+    });
+    it('implementation of add with while statement', (next) => {
+      const add = (x, y) => {
+        while(y > 0) {
+          x = x + 1;
+          y = y - 1;
+        }
+        return x;
+      };
+      expect(
+        add(3,2)
+      ).to.eql(
+        5
+      );
+      next();
+    });
+  });
+  describe('definition of function', () => {
+    const times = (count, f, arg, memo) => {
+      if (count > 1) {
+        return times(count - 1, f, arg, f(memo, arg));
+      } else {
+        return f(memo, arg);
+      }
+    };
+    const succ = (n) => {
+      return n + 1;
+    };
+    const prev = (n) => {
+      return n - 1;
+    };
+    const add = (x, y) => {
+      if ( y < 1) {
+        return x;
+      } else {
+        return add(succ(x), prev(y));
+      }
+    };
+    const multiply = (n,m) => {
+      return times(m, add, n, 0);
+    };
+
+    it('define multiply', (next) => {
+      expect(
+        multiply(2, 3)
+      ).to.eql(
+        6
+      );
+      next();
+    });
+    it('define exponential', (next) => {
+      const exponential = (n, m) => {
+        return times(m, multiply, n, 1);
+      };
+      expect(
+        exponential(2, 5)
+      ).to.eql(
+        32
+      );
+      next();
+    });
   });
 });
