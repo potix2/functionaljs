@@ -97,7 +97,5 @@ describe('data types and features', () => {
     );
     next();
   });
-
-  it('4.9')
 });
 
